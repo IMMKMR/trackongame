@@ -1146,12 +1146,6 @@ export default function App() {
 
   return (
     <div className="w-screen h-screen overflow-hidden select-none bg-brand-soil text-white">
-      {/* Storyboard toggle */}
-      <button onClick={() => navigate('/storyboard')}
-        className="absolute top-3 right-3 z-50 flex items-center gap-1.5 text-[10px] font-orbitron tracking-widest uppercase px-3 py-2 rounded-full transition-all hover:scale-105"
-        style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(246,184,0,0.25)', color: 'rgba(246,184,0,0.7)', backdropFilter: 'blur(8px)' }}>
-        <LayoutGrid className="w-3 h-3" /> Storyboard
-      </button>
 
       <AnimatePresence mode="wait">
         {screen === 'SPLASH' && <Splash key="splash" onNext={() => setScreen('STORY')} />}

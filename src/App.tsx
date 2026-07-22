@@ -934,7 +934,7 @@ const Game = ({ level, onComplete, onBack }: { level: number; onComplete: (score
       </div>
 
       {/* ── CONTROLS ── */}
-      <div className="absolute bottom-6 z-50 w-full flex items-center justify-center gap-12">
+      <div className="absolute bottom-8 z-50 w-full flex items-center justify-center gap-12">
         {/* D-Pad */}
         <div className="grid grid-cols-3 gap-1.5" style={{ width: 130 }}>
           <div />
@@ -1145,7 +1145,7 @@ export default function App() {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden select-none bg-brand-soil text-white">
+    <div className="w-screen h-[100dvh] overflow-hidden select-none bg-brand-soil text-white">
 
       <AnimatePresence mode="wait">
         {screen === 'SPLASH' && <Splash key="splash" onNext={() => setScreen('STORY')} />}

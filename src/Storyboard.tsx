@@ -719,7 +719,7 @@ export default function Storyboard() {
   }
 
   return (
-    <div className="w-screen h-screen flex flex-col overflow-hidden select-none" style={{ background: '#180e07', fontFamily: 'Poppins, sans-serif' }}>
+    <div className="w-screen h-[100dvh] flex flex-col overflow-hidden select-none" style={{ background: '#180e07', fontFamily: 'Poppins, sans-serif' }}>
       {/* Header */}
       <div className="flex-shrink-0 flex items-center justify-between px-8 py-4 border-b"
         style={{ borderColor: 'rgba(246,184,0,0.15)', background: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(10px)' }}>

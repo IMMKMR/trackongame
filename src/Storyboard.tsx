@@ -144,6 +144,88 @@ const FingerprintSVG = ({ alive = false, pct = 0 }) => {
 
 // ── Panel Components ───────────────────────────────────────────
 
+const P0_Overview = () => (
+  <div className="relative flex-shrink-0 rounded-[28px] overflow-hidden border-2 flex flex-col p-5"
+    style={{
+      width: 600, height: 390,
+      borderColor: 'rgba(246,184,0,0.4)',
+      boxShadow: '0 0 40px rgba(246,184,0,0.15), inset 0 0 20px rgba(0,0,0,0.4)',
+      background: '#1a0e08',
+    }}>
+    <div className="text-center mb-4">
+      <h2 className="text-3xl font-montserrat font-black text-brand-gold text-glow-gold">TRACKON GOLD</h2>
+      <p className="text-brand-emerald font-orbitron text-sm tracking-widest mt-1">GAMIFICATION CONCEPT DOCUMENT</p>
+    </div>
+
+    <div className="flex gap-6 h-full">
+      {/* Left Col: Loop & Desc */}
+      <div className="flex-1 flex flex-col gap-4">
+        <div>
+          <h3 className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1 font-orbitron border-b border-white/10 pb-1">Game Description</h3>
+          <p className="text-xs text-white/80 font-poppins leading-relaxed">
+            Players become the <span className="text-brand-emerald font-bold">ORT Energy Core</span>, navigating an oval fingerprint maze. The soil has lost its vitality, and players must collect ORT Energy Orbs to restore the 8 essential nutrients and bring the Fingerprint of Prosperity back to life.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-2 font-orbitron border-b border-white/10 pb-1">Core Game Loop</h3>
+          <div className="flex items-center gap-2 text-xs font-poppins font-semibold text-white/90">
+            <div className="flex flex-col items-center gap-1"><div className="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center border border-brand-gold"><Zap className="w-3 h-3 text-brand-gold" /></div><span className="text-[8px] text-brand-gold">COLLECT ORBS</span></div>
+            <span className="text-white/30">→</span>
+            <div className="flex flex-col items-center gap-1"><div className="w-6 h-6 rounded-full bg-brand-orange/20 flex items-center justify-center border border-brand-orange"><Gem className="w-3 h-3 text-brand-orange" /></div><span className="text-[8px] text-brand-orange">FILL METER</span></div>
+            <span className="text-white/30">→</span>
+            <div className="flex flex-col items-center gap-1"><div className="w-6 h-6 rounded-full bg-cyan-400/20 flex items-center justify-center border border-cyan-400"><Unlock className="w-3 h-3 text-cyan-400" /></div><span className="text-[8px] text-cyan-400">UNLOCK VAULT</span></div>
+            <span className="text-white/30">→</span>
+            <div className="flex flex-col items-center gap-1"><div className="w-6 h-6 rounded-full bg-brand-emerald/20 flex items-center justify-center border border-brand-emerald"><Award className="w-3 h-3 text-brand-emerald" /></div><span className="text-[8px] text-brand-emerald">GET NUTRIENT</span></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Col: Enemies & Powers */}
+      <div className="flex-1 flex flex-col gap-4 border-l border-white/10 pl-6">
+        <div>
+          <h3 className="text-[10px] font-bold text-red-400 uppercase tracking-widest mb-2 font-orbitron border-b border-red-500/20 pb-1">Enemies (Avoid)</h3>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { n: 'Crawler', c: '#8B6914', d: 'Slow patrol' },
+              { n: 'Runner', c: '#ef4444', d: 'Chases you' },
+              { n: 'Teleporter', c: '#9b59b6', d: 'Warps randomly' },
+              { n: 'Disruptor', c: '#e67e22', d: 'Lunges fast' },
+            ].map(e => (
+              <div key={e.n} className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full shrink-0" style={{ background: e.c, boxShadow: `0 0 6px ${e.c}` }} />
+                <div>
+                  <div className="text-[9px] font-bold text-white">{e.n}</div>
+                  <div className="text-[7px] text-white/50">{e.d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-2 font-orbitron border-b border-cyan-500/20 pb-1">Power-Ups (Collect)</h3>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { n: 'ORT Boost', c: '#22d3ee', d: 'Invincible & 2x speed' },
+              { n: 'Water Drop', c: '#3b82f6', d: 'Freezes enemies' },
+              { n: 'Root Boost', c: '#22c55e', d: '+25% speed' },
+              { n: 'Carbon', c: '#84cc16', d: 'Slows enemies' },
+              { n: 'Magnet', c: '#a855f7', d: 'Auto-collects orbs' },
+            ].map(e => (
+              <div key={e.n} className="flex items-center gap-2">
+                <div className="w-3 h-3 shrink-0" style={{ background: e.c, boxShadow: `0 0 6px ${e.c}`, borderRadius: e.n === 'ORT Boost' || e.n === 'Magnet' ? '2px' : '50%', transform: e.n === 'ORT Boost' || e.n === 'Magnet' ? 'rotate(45deg)' : 'none' }} />
+                <div>
+                  <div className="text-[9px] font-bold text-white">{e.n}</div>
+                  <div className="text-[7px] text-white/50">{e.d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const P1_Splash = () => (
   <PhoneFrame>
     <div className="w-full h-full flex flex-col items-center justify-center relative" style={{ background: 'radial-gradient(ellipse at 50% 30%, #3a2212, #2A1A12)' }}>
@@ -546,30 +628,32 @@ const P12_Reward = () => (
 
 // ── Panel metadata ─────────────────────────────────────────────
 const PANELS = [
+  { id: '00', title: 'Game Overview', subtitle: 'Concept & Mechanics', tag: 'DOCUMENTATION', tagColor: '#a855f7',
+    note: 'High-level overview of the game loop, enemies, and power-ups.', component: <P0_Overview />, width: 640, arrow: 'START' },
   { id: '01', title: 'Splash Screen', subtitle: 'Brand Intro', tag: 'ENTRY', tagColor: '#F6B800',
-    note: 'Fingerprint silhouette + ORT logo. Premium intro animation.', component: <P1_Splash /> },
+    note: 'Fingerprint silhouette + ORT logo. Premium intro animation.', component: <P1_Splash />, width: 260 },
   { id: '02', title: 'Story Intro', subtitle: 'Narrative Hook', tag: 'CINEMATIC', tagColor: '#F89A1C',
-    note: '"Every farm has its Fingerprint of Prosperity." ORT Energy Core intro.', component: <P2_Story />, arrow: 'AUTO' },
+    note: '"Every farm has its Fingerprint of Prosperity." ORT Energy Core intro.', component: <P2_Story />, width: 260, arrow: 'AUTO' },
   { id: '03', title: 'Mission Brief', subtitle: 'Objectives', tag: 'BRIEFING', tagColor: '#22d3ee',
-    note: 'Collect Orbs → Fill Meter → Unlock Vault → Collect Nutrient.', component: <P3_Mission />, arrow: 'TAP' },
+    note: 'Collect Orbs → Fill Meter → Unlock Vault → Collect Nutrient.', component: <P3_Mission />, width: 260, arrow: 'TAP' },
   { id: '04', title: 'Level Select', subtitle: '8 Nutrients', tag: 'SELECT', tagColor: '#F6B800',
-    note: '8 levels, each with a unique nutrient. Locked progression.', component: <P4_LevelSelect />, arrow: 'TAP' },
+    note: '8 levels, each with a unique nutrient. Locked progression.', component: <P4_LevelSelect />, width: 260, arrow: 'TAP' },
   { id: '05', title: 'Maze Gameplay', subtitle: 'Fingerprint Arena', tag: 'GAMEPLAY', tagColor: '#3FAF3A',
-    note: 'Oval fingerprint maze. Collect ORT Energy Orbs. Avoid enemies.', component: <P5_MazeGameplay />, arrow: 'TAP' },
+    note: 'Oval fingerprint maze. Collect ORT Energy Orbs. Avoid enemies.', component: <P5_MazeGameplay />, width: 260, arrow: 'TAP' },
   { id: '06', title: 'Enemy Types', subtitle: 'Threat Gallery', tag: 'THREAT', tagColor: '#ef4444',
-    note: '4 enemy types: Crawler, Runner, Teleporter, Disruptor. Increasing difficulty.', component: <P6_Enemies />, arrow: 'PLAY' },
+    note: '4 enemy types: Crawler, Runner, Teleporter, Disruptor. Increasing difficulty.', component: <P6_Enemies />, width: 260, arrow: 'PLAY' },
   { id: '07', title: 'Power-Ups', subtitle: 'ORT Boost & More', tag: 'POWER-UP', tagColor: '#22d3ee',
-    note: '5 power-ups: ORT Boost, Water Drop, Root Boost, Organic Carbon, Magnet.', component: <P7_PowerUps />, arrow: 'PLAY' },
+    note: '5 power-ups: ORT Boost, Water Drop, Root Boost, Organic Carbon, Magnet.', component: <P7_PowerUps />, width: 260, arrow: 'PLAY' },
   { id: '08', title: 'Nutrient Vault', subtitle: 'Core Mechanic', tag: 'MECHANIC', tagColor: '#F6B800',
-    note: '100% ORT Energy → Vault unlocks → Nutrient collected → Level complete.', component: <P8_NutrientVault />, arrow: 'PLAY' },
+    note: '100% ORT Energy → Vault unlocks → Nutrient collected → Level complete.', component: <P8_NutrientVault />, width: 260, arrow: 'PLAY' },
   { id: '09', title: 'Level Complete', subtitle: 'Healing Animation', tag: 'TRANSITION', tagColor: '#3FAF3A',
-    note: 'Nutrient crystal collected. Fingerprint glows. Progress tracked.', component: <P9_LevelComplete />, arrow: 'AUTO' },
+    note: 'Nutrient crystal collected. Fingerprint glows. Progress tracked.', component: <P9_LevelComplete />, width: 260, arrow: 'AUTO' },
   { id: '10', title: 'Fingerprint Restored', subtitle: 'All 8 Done', tag: '8/8 DONE', tagColor: '#3FAF3A',
-    note: 'All 8 nutrients restored. Full green glow, 100% restoration bar.', component: <P10_FingerprintRestored />, arrow: 'AUTO' },
+    note: 'All 8 nutrients restored. Full green glow, 100% restoration bar.', component: <P10_FingerprintRestored />, width: 260, arrow: 'AUTO' },
   { id: '11', title: 'Product Reveal', subtitle: 'Trackon Gold Rises', tag: 'REVEAL', tagColor: '#F6B800',
-    note: 'Trackon Gold pack emerges from soil. 8 nutrient crystals orbit it.', component: <P11_Reveal />, arrow: 'AUTO' },
+    note: 'Trackon Gold pack emerges from soil. 8 nutrient crystals orbit it.', component: <P11_Reveal />, width: 260, arrow: 'AUTO' },
   { id: '12', title: 'Reward Screen', subtitle: 'Victory & CTA', tag: 'FINALE', tagColor: '#F6B800',
-    note: 'Claim Reward, Play Again, Learn More, Scan QR. Nutrient badges.', component: <P12_Reward />, arrow: 'AUTO' },
+    note: 'Claim Reward, Play Again, Learn More, Scan QR. Nutrient badges.', component: <P12_Reward />, width: 260, arrow: 'AUTO' },
 ];
 
 // ── Legend ─────────────────────────────────────────────────────
@@ -618,7 +702,7 @@ export default function Storyboard() {
               <h1 className="text-4xl font-montserrat font-black mb-2">{panel.title}</h1>
               <p className="text-gray-500 text-xl">{panel.subtitle}</p>
             </div>
-            <div className="scale-125 transform origin-top mb-12" style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.2))' }}>
+            <div className="scale-125 transform origin-top mb-12 flex justify-center" style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.2))' }}>
               {panel.component}
             </div>
             <div className="max-w-md text-center">
@@ -678,14 +762,14 @@ export default function Storyboard() {
       </div>
 
       {/* Scrollable Panels */}
-      <div ref={scrollRef} className="flex-1 overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none' }}>
-        <div className="flex items-stretch h-full" style={{ padding: '40px 60px', gap: 0, minWidth: 'max-content' }}>
+      <div ref={scrollRef} className="flex-1 overflow-x-auto overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
+        <div className="flex items-start h-full" style={{ padding: '40px 60px', gap: 0, minWidth: 'max-content' }}>
           {PANELS.map((panel, idx) => (
             <React.Fragment key={panel.id}>
               <motion.div className="flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.06, duration: 0.5 }}
-                style={{ width: 260 }}>
+                style={{ width: panel.width || 260 }}>
                 {/* Title */}
                 <div className="flex items-center gap-2 mb-3 self-start">
                   <div className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-orbitron font-bold text-black"
@@ -708,7 +792,7 @@ export default function Storyboard() {
                     style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%)' }} />
                 </div>
                 {/* Note */}
-                <div className="mt-3 self-start max-w-[220px]">
+                <div className="mt-3 self-start" style={{ maxWidth: panel.width ? panel.width - 40 : 220 }}>
                   <div className="text-[9px] font-poppins leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
                     {panel.note}
                   </div>
@@ -729,16 +813,20 @@ export default function Storyboard() {
       <div className="flex-shrink-0 px-8 py-3 flex items-center gap-2"
         style={{ borderTop: '1px solid rgba(255,255,255,0.06)', background: 'rgba(0,0,0,0.3)' }}>
         <div className="text-[9px] font-orbitron tracking-widest uppercase mr-3" style={{ color: 'rgba(255,255,255,0.3)' }}>Flow</div>
-        {PANELS.map((p, i) => (
-          <React.Fragment key={p.id}>
-            <button onClick={() => { scrollRef.current && (scrollRef.current.scrollLeft = i * 316); }}
-              className="flex items-center gap-1 text-[8px] font-orbitron px-2 py-1 rounded-full transition-all hover:scale-105"
-              style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid ${p.tagColor}33`, color: p.tagColor }}>
-              <span>{p.id}</span>
-            </button>
-            {i < PANELS.length - 1 && <div className="w-2 h-px" style={{ background: 'rgba(255,255,255,0.1)' }} />}
-          </React.Fragment>
-        ))}
+        {PANELS.map((p, i) => {
+          // Calculate offset dynamically based on previous widths
+          const offset = PANELS.slice(0, i).reduce((sum, curr) => sum + (curr.width || 260) + 56, 0);
+          return (
+            <React.Fragment key={p.id}>
+              <button onClick={() => { scrollRef.current && (scrollRef.current.scrollLeft = offset); }}
+                className="flex items-center gap-1 text-[8px] font-orbitron px-2 py-1 rounded-full transition-all hover:scale-105"
+                style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid ${p.tagColor}33`, color: p.tagColor }}>
+                <span>{p.id}</span>
+              </button>
+              {i < PANELS.length - 1 && <div className="w-2 h-px" style={{ background: 'rgba(255,255,255,0.1)' }} />}
+            </React.Fragment>
+          );
+        })}
       </div>
     </div>
   );

@@ -934,7 +934,7 @@ const Game = ({ level, onComplete, onBack }: { level: number; onComplete: (score
       </div>
 
       {/* ── CONTROLS ── */}
-      <div className="flex items-center gap-6 pb-3 z-20">
+      <div className="absolute bottom-6 z-50 w-full flex items-center justify-center gap-12">
         {/* D-Pad */}
         <div className="grid grid-cols-3 gap-1.5" style={{ width: 130 }}>
           <div />

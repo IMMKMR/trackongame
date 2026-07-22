@@ -1,0 +1,11 @@
+{
+  "title": "gamification idea",
+  "description": "Engage in a premium agriculture-themed maze game where players collect essential nutrients to restore soil health and unlock Trackon Gold, enhancing farming prosperity.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

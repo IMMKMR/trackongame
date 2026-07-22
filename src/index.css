@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand-emerald: #3FAF3A;
+  --color-brand-gold: #F6B800;
+  --color-brand-soil: #2A1A12;
+  --color-brand-earth: #5B3A1E;
+  --color-brand-maze: #58C44D;
+  --color-brand-orange: #F89A1C;
+  --color-brand-red: #E74C3C;
+  --color-brand-cyan: #22D3EE;
+
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-orbitron: 'Orbitron', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-soil text-white font-poppins;
+    background-color: var(--color-brand-soil);
+    background-image: radial-gradient(circle at center, var(--color-brand-earth) 0%, var(--color-brand-soil) 100%);
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl;
+  }
+  
+  .glass-card {
+    @apply bg-brand-soil/80 backdrop-blur-lg border border-brand-gold/30 rounded-3xl shadow-[0_0_30px_rgba(246,184,0,0.15)];
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(246,184,0,0.5), 0 0 20px rgba(246,184,0,0.3);
+  }
+
+  .text-glow-emerald {
+    text-shadow: 0 0 10px rgba(63,175,58,0.5), 0 0 20px rgba(63,175,58,0.3);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(34,211,238,0.5), 0 0 20px rgba(34,211,238,0.3);
+  }
+
+  .text-glow-red {
+    text-shadow: 0 0 10px rgba(231,76,60,0.5), 0 0 20px rgba(231,76,60,0.3);
+  }
+}
+
+/* ── ORT Energy Core Animations ─────────────────────── */
+@keyframes ort-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(63,175,58,0.6); }
+  50% { transform: scale(1.12); box-shadow: 0 0 22px rgba(63,175,58,0.9); }
+}
+@keyframes ort-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes ort-boost-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(34,211,238,0.5); }
+  50% { box-shadow: 0 0 28px rgba(34,211,238,1); }
+}
+
+/* ── Collectible Animations ─────────────────────────── */
+@keyframes orb-glow {
+  0%, 100% { box-shadow: 0 0 3px rgba(246,184,0,0.5); opacity: 0.85; }
+  50% { box-shadow: 0 0 7px rgba(246,184,0,1); opacity: 1; }
+}
+@keyframes crystal-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.08); }
+}
+@keyframes powerup-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ── Vault Animations ───────────────────────────────── */
+@keyframes vault-locked {
+  0%, 100% { box-shadow: 0 0 8px rgba(246,184,0,0.2); }
+  50% { box-shadow: 0 0 14px rgba(246,184,0,0.5); }
+}
+@keyframes vault-unlocked {
+  0% { box-shadow: 0 0 8px rgba(246,184,0,0.3); }
+  50% { box-shadow: 0 0 30px rgba(63,175,58,0.9); transform: scale(1.2); }
+  100% { box-shadow: 0 0 18px rgba(63,175,58,0.6); transform: scale(1); }
+}
+
+/* ── Enemy Animations ───────────────────────────────── */
+@keyframes enemy-crawler {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+@keyframes enemy-runner {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15) translateX(-1px); }
+  75% { transform: scale(1.15) translateX(1px); }
+}
+@keyframes enemy-teleporter {
+  0%, 80% { opacity: 1; }
+  90% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+@keyframes enemy-disruptor {
+  0%, 100% { box-shadow: 0 0 6px rgba(231,76,60,0.5); }
+  50% { box-shadow: 0 0 14px rgba(255,165,0,1); }
+}
+
+/* ── Trail & FX ─────────────────────────────────────── */
+@keyframes trail-fade {
+  0% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+@keyframes flash-in {
+  0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-ort-pulse { animation: ort-pulse 1.5s ease-in-out infinite; }
+.animate-ort-ring { animation: ort-ring 8s linear infinite; }
+.animate-ort-boost { animation: ort-boost-pulse 0.8s ease-in-out infinite; }
+.animate-orb-glow { animation: orb-glow 2s ease-in-out infinite; }
+.animate-crystal-float { animation: crystal-float 2s ease-in-out infinite; }
+.animate-powerup-spin { animation: powerup-spin 3s linear infinite; }
+.animate-vault-locked { animation: vault-locked 2.5s ease-in-out infinite; }
+.animate-vault-unlocked { animation: vault-unlocked 0.8s ease-out forwards; }
+.animate-enemy-crawler { animation: enemy-crawler 1.2s ease-in-out infinite; }
+.animate-enemy-runner { animation: enemy-runner 0.5s ease-in-out infinite; }
+.animate-enemy-teleporter { animation: enemy-teleporter 2s ease-in-out infinite; }
+.animate-enemy-disruptor { animation: enemy-disruptor 1s ease-in-out infinite; }
+.animate-trail-fade { animation: trail-fade 0.6s ease-out forwards; }
+.animate-flash-in { animation: flash-in 0.3s ease-out; }
